@@ -1,4 +1,3 @@
-import json
 from astral import Location
 import datetime
 from tahoma import Protocol, Action
