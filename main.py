@@ -48,6 +48,14 @@ def main():
                                 execute = False
                                 message = "Time qualifies{0}, but not Sun time yet{1}"
                                 print(message.format(now, reference_time))
+                        elif reference_time < time_min:
+                            # curtains should be operated immediately after min_time if
+                            # the sun time is before min_time
+                            execute = True
+                        elif reference_time > time_max and (time_max - now).total_seconds() > 120:
+                            execute = False
+                            message = "Time ({0}) is good, sun ({1}) is good. Will wait until closet to time_max ({2})"
+                            print(message.format(now, reference_time, time_max))
                     if execute:
                         s = "Blinds {0} (id {2}) should be {1}"
                         print(s.format(blind, action, settings["id"]))
