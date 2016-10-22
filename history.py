@@ -12,11 +12,14 @@ class History:
         self.__get_history()
 
     def __get_history(self):
-        self.__all_history = json.load(open(self.__file_name, "rt"))
-        for blind, history in self.__all_history.items():
-            for command, time_value in history.items():
-                d = datetime.datetime.strptime(time_value, "%Y%m%d %H:%M")
-                history[command] = d
+        try:
+            self.__all_history = json.load(open(self.__file_name, "rt"))
+            for blind, history in self.__all_history.items():
+                for command, time_value in history.items():
+                    d = datetime.datetime.strptime(time_value, "%Y%m%d %H:%M")
+                    history[command] = d
+        except FileNotFoundError:
+            print("File {} does not exist. Will load empty history".format(self.__file_name))
 
     def save(self):
         history_to_save = copy.deepcopy(self.__all_history)
