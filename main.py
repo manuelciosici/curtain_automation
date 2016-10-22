@@ -18,7 +18,7 @@ def main():
     parser = argparse.ArgumentParser(description="Automatically control Somfy curtains based on Sun and preferences")
     parser.add_argument("--wd", dest="wd", help="working directory (where the config file and history are located)", default="")
     args = parser.parse_args()
-    if args.wd[-1] != "/":
+    if len(args.wd) > 0 and args.wd[-1] != "/":
         args.wd += "/"
     print("Curtain system started")
     print("Config is ")
