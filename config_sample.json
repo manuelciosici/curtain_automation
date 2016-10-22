@@ -1,0 +1,59 @@
+{
+  "credentials": {
+    "user": "user@example.com",
+    "pass": "some_password"
+  },
+  "blinds": {
+    "bedroom": {
+      "id": "rts://0204-8020-6812/16758980",
+      "actions": {
+        "up": {
+          "min_time": "07:00",
+          "max_time": "07:45",
+          "raise_by_sun": true,
+          "sun_time": "sunrise"
+        },
+        "down": {
+          "min_time": "19:00",
+          "max_time": "22:00",
+          "raise_by_sun": true,
+          "sun_time": "sunset"
+        }
+      }
+    },
+    "living_1": {
+      "id": "rts://0204-8020-6812/16746626",
+      "actions": {
+        "up": {
+          "min_time": "07:00",
+          "max_time": "07:30",
+          "raise_by_sun": true,
+          "sun_time": "sunrise"
+        },
+        "down": {
+          "min_time": "19:00",
+          "max_time": "22:00",
+          "raise_by_sun": true,
+          "sun_time": "sunset"
+        }
+      }
+    },
+    "living_2": {
+      "id": "rts://0204-8020-6812/16761620",
+      "actions": {
+        "up": {
+          "min_time": "07:00",
+          "max_time": "07:30",
+          "raise_by_sun": true,
+          "sun_time": "sunrise"
+        },
+        "down": {
+          "min_time": "19:00",
+          "max_time": "22:00",
+          "raise_by_sun": true,
+          "sun_time": "sunset"
+        }
+      }
+    }
+  }
+}
