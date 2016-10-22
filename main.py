@@ -3,6 +3,7 @@ import datetime
 from tahoma import Protocol, Action
 from history import History
 from config import Config
+import argparse
 
 
 def get_sunrise_sunset(date):
@@ -14,11 +15,16 @@ def get_sunrise_sunset(date):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Automatically control Somfy curtains based on Sun and preferences")
+    parser.add_argument("--wd", dest="wd", help="working directory (where the config file and history are located)", default="")
+    args = parser.parse_args()
+    if args.wd[-1] != "/":
+        args.wd += "/"
     print("Curtain system started")
     print("Config is ")
-    config = Config("config.json")
+    config = Config(args.wd + "config.json")
     print(config)
-    history = History("history.json")
+    history = History(args.wd + "history.json")
     now = datetime.datetime.now()
     sun_times = get_sunrise_sunset(now)
     somfy = Protocol(config["credentials"]["user"], config["credentials"]["pass"])
@@ -65,6 +71,7 @@ def main():
         print("Nothing to do")
 
     print("DONE")
+
 
 if __name__ == "__main__":
     main()
