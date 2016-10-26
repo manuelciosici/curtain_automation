@@ -21,12 +21,12 @@ def main():
     if len(args.wd) > 0 and args.wd[-1] != "/":
         args.wd += "/"
     print("Curtain system started")
-    print("Config is ")
     config = Config(args.wd + "config.json")
-    print(config)
     history = History(args.wd + "history.json")
     now = datetime.datetime.now()
     sun_times = get_sunrise_sunset(now)
+    print("Sun times today:")
+    print(sun_times)
     somfy = Protocol(config["credentials"]["user"], config["credentials"]["pass"], args.wd + "cookie.json")
     somfy.getSetup()
     actions_to_execute = []
