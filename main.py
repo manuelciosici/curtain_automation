@@ -27,7 +27,7 @@ def main():
     history = History(args.wd + "history.json")
     now = datetime.datetime.now()
     sun_times = get_sunrise_sunset(now)
-    somfy = Protocol(config["credentials"]["user"], config["credentials"]["pass"])
+    somfy = Protocol(config["credentials"]["user"], config["credentials"]["pass"], args.wd + "cookie.json")
     somfy.getSetup()
     actions_to_execute = []
     for blind, settings in config["blinds"].items():

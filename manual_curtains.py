@@ -29,7 +29,7 @@ def main():
     config = Config(args.wd + "config.json")
     print(args)
 
-    somfy = Protocol(config["credentials"]["user"], config["credentials"]["pass"])
+    somfy = Protocol(config["credentials"]["user"], config["credentials"]["pass"], args.wd + "cookie.json")
     somfy.getSetup()
     print("Turning {0} {1}".format(curtain, action))
     action_dict = {"deviceURL": config["blinds"][curtain]["id"],
